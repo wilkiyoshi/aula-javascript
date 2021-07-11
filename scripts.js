@@ -38,7 +38,7 @@ console.log(typeof object);//identifica tipo da variável
 
 
 // OPERADORES ARITMETICOS
-
+console.log("-----------operadores aritmeticos------------")
 //adição
 var somaDoisNumeros = 1 + 3;
 console.log("Operador adição: " + somaDoisNumeros);
@@ -107,7 +107,7 @@ console.log("Resto=" + (x%=y));
 
 
 ///////////////PRÁTICA CONDICIONAIS//////////////
-console.log("condicionais")
+console.log("----------condicionais-----------")
 var num = 1;
 num = 5 ;
 
@@ -133,7 +133,7 @@ switch (mes){
 }
 
 ////////REPETIÇÃO///////
-console.log("Repeticões")
+console.log("----------Repeticões----------")
 
 var colors = ["Vermelho", "Amarelo", "Azul", "Verde","Laranja"]
 
@@ -145,3 +145,176 @@ for (var i=0; i<colors.length; i++){
 for (var i=0; i < 10;i++){
     console.log(i);
 }
+
+var i = 10;
+while(i<30){
+    console.log(i);
+    i++;
+}
+
+var x = 1;
+do {
+    console.log("valor de x:" + x);
+    x++;
+}
+    while (x<30);
+
+
+
+//////// FUNÇÕES /////////boa prática ser verbo da ação
+
+function sayHello (){
+    console.log("Hello function!!!")
+}
+sayHello();
+
+function sayHello (name, lastName){
+    console.log("Hello," + name + " " + lastName);
+}
+sayHello("William", "Kiyoshi");
+
+function sum(a,b){
+    return a + b;
+}
+console.log(sum(3,4));
+
+
+///////////CLASSES//////////////
+
+console.log("-------------classe---------------")
+
+class Book {
+    constructor(title, author, pages){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+}
+
+read (){
+    return `Estou lendo ${this.title}` // interpolação
+}
+}
+
+let book = new Book("Livro 1","Will","150"); //instancia objeto
+let otherBook = new Book("Livro 2","Marcio","100");
+
+console.log(otherBook, book);
+console.log(book.read());
+
+////////// HERANÇA///////////
+console.log("-------herança--------")
+class ITBook extends Book{
+    constructor (title, author,pages, technology){
+        super(title,author,pages);
+        this.technology = technology;
+    }
+}
+
+let itbook = new ITBook ("Livro 3","Leo","190","Javascript");
+
+console.log(itbook);
+
+//////// ENCAPSULAMENTO ///////////
+console.log("-----------------Encapsulamento------------------")
+
+class Person {
+    constructor(name){
+        this._name = name;
+    }
+    get name(){
+        return this._name;
+    }
+    set name(value){
+        this._name = value;
+    }
+}
+
+let pessoa = new Person ("William");
+pessoa.name = "Will";
+console.log(pessoa.name);
+
+
+
+//////////////EXERCICIO////////////////
+console.log("------------------EXERCICIOS MODULO 4--------------------")
+
+let resultado = fizzBuzz(16);
+console.log(resultado);
+
+function fizzBuzz(entrada){
+    if (typeof entrada !== "number")
+        return "Não é um número";
+    if ((entrada % 3 === 0) && (entrada % 5 === 0))
+        return "FizzBuzz";
+    if (entrada % 3 === 0)
+        return "Fizz";
+    if (entrada % 5 === 0)
+        return "Buzz";
+    else 
+        return entrada;
+}
+
+//reverse string
+let newStr = '';
+
+function reverserAString (str){
+    for (let i= str.length -1; i>=0 ;i--){
+        newStr += str[i];
+        console.log(newStr);
+    }
+}
+
+let resultado2 = reverserAString('Hello');
+
+
+//convert celsius p/ fahrenheit
+function convertToFahrenheit(value){
+    return value * 1.8 + 32;
+}
+
+let resultado3 = convertToFahrenheit(1);
+console.log(`O valor em fahrenheit é ${resultado3}`);
+
+
+// to do list
+const listaContainer = document.querySelector('[data-lists]');
+const newlistaForm = document.querySelector('[data-new-list-item-form]');
+const newlistaInput = document.querySelector('[data-new-list-input]');
+
+let lists = [];
+
+newlistaForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const listName = newlistaInput.value;
+
+    if (listName === null || listName === "") return
+    const list = createList (listName) 
+    newlistaInput.value = null;
+    lists.push (list);
+    render();
+})
+
+function render(){
+    limparElemento(listaContainer);
+    lists.forEach(function(list){
+        const item = document.createElement('li')
+        item.classList.add('item')
+        item.innerText = list.name;
+        listaContainer.appendChild(item);
+        })
+}
+
+function createList(nome){
+    return {
+        id: Date.now().toString(), 
+        name: nome
+    }
+}
+
+function limparElemento(element){
+    while (element.firstChild){
+        element.removeChild(element.firstChild);
+    }
+}
+
+//render()
