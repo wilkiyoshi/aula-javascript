@@ -132,3 +132,16 @@ switch (mes){
     default: console.log("nenhum dos casos atendidos")
 }
 
+////////REPETIÇÃO///////
+console.log("Repeticões")
+
+var colors = ["Vermelho", "Amarelo", "Azul", "Verde","Laranja"]
+
+for (var i=0; i<colors.length; i++){
+    console.log("Cor: " + colors[i]);
+}
+
+
+for (var i=0; i < 10;i++){
+    console.log(i);
+}
