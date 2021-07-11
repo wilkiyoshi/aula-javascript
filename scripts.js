@@ -68,3 +68,39 @@ var num = 2;
 console.log("Decremento: " + (--num));
 
 
+// OPERADORES DE ATRIBUIÇÃO
+
+var x = 4;
+var y = 3;
+console.log("Soma=" + (x+=y));
+
+var x = 4;
+var y = 3;
+console.log(x-=y);
+
+var x = 4;
+var y = 3;
+console.log("Divisão=" + (x/=y));
+
+var x = 4;
+var y = 3;
+console.log("Multiplicação=" + (x*=y));
+
+var x = 4;
+var y = 3;
+console.log("Resto=" + (x%=y));
+
+//OPERADORES DE COMPARAÇÃO
+
+// ==         comparação valores
+// ===        comparação tipos
+// !=         diferente de
+// < ou <=    menor ou menor igual
+// > ou >=    maior ou maior igual
+
+
+//OPERADORES LÓGICOS
+
+// && ou AND (e)
+// || ou OR (ou)
+// ! (negação)
