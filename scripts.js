@@ -318,3 +318,8 @@ function limparElemento(element){
 }
 
 //render()
+
+
+
+//const nome;
+//console.log(nome);
